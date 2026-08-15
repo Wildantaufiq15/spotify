@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Willy &amp; Marry - The Wedding Playlist</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="tailwind-config.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+
+    <!-- Pre-Opening Splash Screen -->
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <img src="asset/img/logo/SebarKabar.gif" class="loading-logo" alt="SebarKabar">
+        <div class="loading-bar-container">
+            <div id="loading-bar" class="loading-bar-fill"></div>
+        </div>
+        <span id="loading-text" class="loading-text">Loading...</span>
+    </div>
+
+    <!-- Pre-Opening Splash Screen -->
+    <div id="preopening-screen" class="preopening-screen">
+        <img src="asset/img/spotify-logo-animasi.webp"
+             class="preopening-logo"
+             alt="Spotify Animation"
+             onerror="this.style.display='none'">
+        <p class="preopening-title">Stream our love story.</p>
+        <h1 class="preopening-names">Willy &amp; Marry</h1>
+        <button id="open-invitation" class="preopening-btn">
+            <span class="material-symbols-outlined" style="font-size:20px;">lock_open</span>
+            Open Invitation
+        </button>
+        <p class="preopening-decorative">Wedding Invitation</p>
+    </div>
+
+    <!-- Global Floating Top Nav -->
+    <header class="fixed top-0 w-full z-50 bg-background text-primary font-label-caps text-label-caps flex justify-between items-center px-container-margin h-16 flat no shadows">
+        <button class="hover:opacity-80 transition-transform active:scale-95 text-on-surface-variant flex items-center justify-center">
+            <span class="material-symbols-outlined" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+        </button>
+        <span class="font-label-caps text-label-caps text-on-surface tracking-widest text-center flex-1">NOW PLAYING</span>
+        <button class="hover:opacity-80 transition-transform active:scale-95 text-on-surface-variant flex items-center justify-center">
+            <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+        </button>
+    </header>
+
+    <main class="pt-16 px-container-margin flex flex-col gap-section-gap max-w-[480px] mx-auto hidden-during-splash">
+
+        <!-- 1. Splash/Cover -->
+        <section class="min-h-[85vh] flex flex-col items-center gap-6 relative mt-4 reveal" id="splash">
+            <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-2xl mb-8">
+                <img src="asset/img/fotodepan.jpg"
+                     class="w-full h-full object-cover" alt="Willy &amp; Marry">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+            <div class="w-full flex flex-col gap-6 px-2">
+                <div class="flex justify-between items-end">
+                    <div class="text-left">
+                        <h2 class="font-headline-lg text-pure-white mb-1">Stream our love story.</h2>
+                        <p class="text-secondary font-body-md">Willy &amp; Marry</p>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <span class="material-symbols-outlined text-white/70 text-24px" data-icon="close">close</span>
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-on-primary">
+                            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <div class="h-1 bg-white/10 rounded-full w-full">
+                        <div class="h-full bg-white w-1/4 rounded-full relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-pure-white rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-white/50 font-label-caps">
+                        <span>0:00</span>
+                        <span>-3:54</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center py-4">
+                    <span class="material-symbols-outlined text-primary text-24px" data-icon="shuffle">shuffle</span>
+                    <span class="material-symbols-outlined text-white text-[32px]" data-icon="skip_previous" style="font-variation-settings: 'FILL' 1;">skip_previous</span>
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black">
+                        <span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white text-[32px]" data-icon="skip_next" style="font-variation-settings: 'FILL' 1;">skip_next</span>
+                    <span class="material-symbols-outlined text-white/70 text-24px" data-icon="timer">timer</span>
+                </div>
+                <div class="flex justify-center mt-4">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Hero Countdown -->
+        <section class="glass-panel rounded-[24px] p-card-padding flex flex-col gap-6 reveal" id="countdown">
+            <div class="text-center">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white mb-2">Willy &amp; Marry: New Chapter</h2>
+                <span class="inline-block bg-primary/20 text-primary font-label-caps text-label-caps px-3 py-1 rounded-full">
+                    Coming soon on Saturday, 20 Jun 2026
+                </span>
+            </div>
+
+            <!-- Music Player Widget -->
+            <div class="flex flex-col gap-3">
+                <!-- Progress Bar -->
+                <div class="h-1 bg-surface-container-high rounded-full w-full overflow-hidden">
+                    <div class="h-full bg-primary w-1/3 rounded-full relative">
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-pure-white rounded-full shadow"></div>
+                    </div>
+                </div>
+                <!-- YouTube Video -->
+                <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-black border border-white/10 mt-2 cursor-pointer" id="video-thumbnail">
+                    <img class="w-full h-full object-cover"
+                         src="https://img.youtube.com/vi/eUrrNBn2agM/maxresdefault.jpg"
+                         alt="Video Thumbnail"
+                         onerror="this.src='https://img.youtube.com/vi/eUrrNBn2agM/hqdefault.jpg'">
+                    <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-3">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                        </div>
+                        <span class="font-label-caps text-label-caps text-white/80">Watch Our Story</span>
+                    </div>
+                </div>
+
+                <!-- Video Lightbox -->
+                <div id="video-lightbox" class="lightbox-overlay" style="z-index:300;">
+                    <button id="video-lightbox-close" class="lightbox-close" style="z-index:301;">&times;</button>
+                    <iframe id="video-lightbox-iframe"
+                        class="lightbox-image"
+                        style="width:90vw;max-width:800px;height:50vw;max-height:450px;border-radius:12px;"
+                        src=""
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- 4-Box Timer -->
+            <div class="grid grid-cols-4 gap-2 mt-4">
+                <div class="bg-surface-container flex flex-col items-center justify-center py-3 rounded-lg border border-white/5">
+                    <span class="font-countdown-num text-countdown-num text-primary">124</span>
+                    <span class="text-[10px] text-secondary uppercase tracking-wider mt-1">Days</span>
+                </div>
+                <div class="bg-surface-container flex flex-col items-center justify-center py-3 rounded-lg border border-white/5">
+                    <span class="font-countdown-num text-countdown-num text-primary">14</span>
+                    <span class="text-[10px] text-secondary uppercase tracking-wider mt-1">Hrs</span>
+                </div>
+                <div class="bg-surface-container flex flex-col items-center justify-center py-3 rounded-lg border border-white/5">
+                    <span class="font-countdown-num text-countdown-num text-primary">32</span>
+                    <span class="text-[10px] text-secondary uppercase tracking-wider mt-1">Mins</span>
+                </div>
+                <div class="bg-surface-container flex flex-col items-center justify-center py-3 rounded-lg border border-white/5">
+                    <span class="font-countdown-num text-countdown-num text-primary">45</span>
+                    <span class="text-[10px] text-secondary uppercase tracking-wider mt-1">Secs</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="text-sm text-secondary italic leading-relaxed">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."
+                </p>
+                <p class="text-xs text-primary font-bold mt-2">Q.S Ar-Rum : 21</p>
+            </div>
+        </section>
+
+        <!-- 3. Favourite Couple -->
+        <section class="flex flex-col gap-4 reveal" id="favourite-couple">
+            <div class="w-full aspect-square rounded-[24px] overflow-hidden relative shadow-2xl">
+                <img class="w-full h-full object-cover"
+                     data-alt="A beautiful, high-contrast duotone portrait of a modern Indonesian couple in an elegant, minimal studio setting."
+                     src="asset/img/fotokedua.jpg">
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            </div>
+            <div class="text-center px-4">
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white">Favourite Couple</h3>
+                <p class="font-body-md text-body-md text-secondary mt-3 leading-relaxed">
+                    Dengan memohon izin dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. Mini Player Divider -->
+        <div class="mini-player-divider flex justify-center reveal">
+            <div class="glass-panel w-11/12 rounded-full px-4 py-2 flex items-center justify-between shadow-lg">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-surface-container rounded-md overflow-hidden border border-white/10">
+                        <img class="w-full h-full object-cover"
+                             data-alt="A small, stylized macro shot of a diamond engagement ring resting on a dark vinyl record surface."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFxyg0fwSVjdBGtttcqHeIVI51WKjYEzGs3DCh-6h3sK_Zq_Fjz0S9pKEWxuTM7u8DQ0TETjavrqh9yNEjszbZZT-zKG5QorSys1Sf7ZZX9EKoLwLJM8Q77weIVfSRvdBENyu8myaCI3gC6xE_RoS3B06JlmuSZEBXT4_s-mP_w7rXookXqXZCFWI2nbDLYNYTTnf2LkODRzYTkM1zL9LPF5ooVbv5WUl6NC5363-UBZ-UjvZlPVcPZQ">
+                    </div>
+                    <span class="font-player-track text-player-track text-sm truncate max-w-[120px]">The Wedding Of Willy &amp; Marry</span>
+                </div>
+                <div class="flex items-center gap-2 text-secondary">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="fast_rewind">fast_rewind</span>
+                    <span class="material-symbols-outlined text-[20px] text-primary" data-icon="graphic_eq">graphic_eq</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="open_in_full">open_in_full</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Groom Profile -->
+        <section class="rounded-[24px] overflow-hidden relative reveal" id="groom">
+            <div class="absolute inset-0 bg-gradient-to-br from-gradient-male-start to-gradient-male-end opacity-80"></div>
+            <div class="relative z-10 p-card-padding flex flex-col items-center text-center gap-4">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white/10 shadow-xl mb-2">
+                    <img class="w-full h-full object-cover"
+                         data-alt="A striking portrait of a handsome Indonesian groom looking confidently at the camera."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLDXmByA-n9iP8Qpf-1Fh2F4L56D-bwZRQcUzTeZEQb3RQR-AkWheG9QEn3hAVrEnxAQj9hYwJ7XH27CiB3iwu9NIX-aAhfp5neqGlUfnZ0Xe-OR9CdkQzLeM252hilYPYSIqDTa5C0TUXBrJJY1h97b66fWQM79l2sxAdjOa2PTOktRoBBrk709oUND9BepsS1rXCMoOzyxDue2D6fTGrNmqBJiisB7AlzpeIAl23S9aE0wIweWV6vg">
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-tertiary uppercase tracking-wider block mb-1">@Willyramadhan61</span>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white">Willy Mochammad Ramadhan</h3>
+                </div>
+                <p class="font-body-md text-body-md text-pure-white/80 mt-2">
+                    Putra dari<br>Bapak [Nama Ayah] &amp; Ibu [Nama Ibu]
+                </p>
+                <button class="mt-4 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white hover:bg-white/20 transition-colors">
+                    Follow
+                </button>
+            </div>
+        </section>
+
+        <!-- 6. Bride Profile -->
+        <section class="rounded-[24px] overflow-hidden relative reveal" id="bride">
+            <div class="absolute inset-0 bg-gradient-to-br from-gradient-female-start to-gradient-female-end opacity-80"></div>
+            <div class="relative z-10 p-card-padding flex flex-col items-center text-center gap-4">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white/10 shadow-xl mb-2">
+                    <img class="w-full h-full object-cover"
+                         data-alt="A stunning portrait of a beautiful Indonesian bride gazing elegantly off-camera."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDALpczwcScXyR8kSMSU2Xfl3oZ1TZbrWWJtWS2eO_Y7fFKEjpFE8hiGdQOfsQVC0lBfmG4l_ECKoRJk2wWUO42qjNWsNreLh_ixOSLzg13jhhLA4Z1sGm2B7czl0jNFvLORSS-SASfDYTiAbAL_IsWpYgmvE2o42FM9jM9Nhh2lsqYNsGRp4q6WrESD5sqHYUpvehkH3iU7WKE6leq3Xz1_34lk8zzqTH0DloV5XRksIM_ogp2OMUamw">
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-tertiary uppercase tracking-wider block mb-1">@Marrynurmalitaaa</span>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white">Marry Nurmalita</h3>
+                </div>
+                <p class="font-body-md text-body-md text-pure-white/80 mt-2">
+                    Putri dari<br>Bapak [Nama Ayah] &amp; Ibu [Nama Ibu]
+                </p>
+                <button class="mt-4 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white hover:bg-white/20 transition-colors">
+                    Follow
+                </button>
+            </div>
+        </section>
+
+        <!-- 7. Mini Player Divider -->
+        <div class="mini-player-divider flex justify-center">
+            <div class="glass-panel w-11/12 rounded-full px-4 py-2 flex items-center justify-between shadow-lg">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-surface-container rounded-md flex items-center justify-center border border-white/10">
+                        <span class="material-symbols-outlined text-primary text-[18px]" data-icon="location_on">location_on</span>
+                    </div>
+                    <span class="font-player-track text-player-track text-sm truncate max-w-[120px]">Venue Information</span>
+                </div>
+                <div class="flex items-center gap-2 text-secondary">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="fast_rewind">fast_rewind</span>
+                    <span class="material-symbols-outlined text-[20px] text-primary" data-icon="graphic_eq">graphic_eq</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="open_in_full">open_in_full</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Timeline & Location -->
+        <section class="flex flex-col gap-6 reveal" id="timeline">
+            <div class="border-b-2 border-primary w-fit pb-1">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white uppercase tracking-wide">Timeline &amp; Location</h2>
+            </div>
+            <div class="grid gap-6">
+
+                <!-- Akad -->
+                <div class="relative h-64 rounded-[24px] overflow-hidden group">
+                    <div class="absolute inset-0 bg-surface-container">
+                        <img class="w-full h-full object-cover duotone-green"
+                             data-alt="A stylized architectural shot of a modern, minimalist mosque interior."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAjXwsD1-cGIrp37kwyOQXdN5ASyUsJsnC52gZa88dYQLX2oAEpssumnSR172RiRIDllTfZ-za5dEVJ6yw7XRaw8Hw9C33AAyLg4tUG0FmLZFyJNRCzm8j80Xj6D-xaLKWTgzGkJXTC0OYTb84rbLVb2HdHMg-7D2R0HACxvkr2jUz0SyuCi8ecU1E2wMTzfbOaKracfI_FW8ZBqXQ4hQw2EEltzHb-jEOgPb2vibqgrLJtnm8gotEzA">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute inset-0 p-5 flex flex-col justify-end">
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1">Akad Nikah</h3>
+                        <p class="font-bold text-white text-sm">Sabtu, 20 Juni 2026</p>
+                        <p class="text-secondary text-sm mb-3">08:00 WIB - Selesai</p>
+                        <p class="text-white/80 text-xs mb-4 line-clamp-2">Masjid Raya, Jl. Contoh Alamat No. 123, Kota, Provinsi</p>
+                        <button class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-xs font-bold text-white w-fit flex items-center gap-2 hover:bg-primary/20 hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-[16px]" data-icon="map">map</span>
+                            Location
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resepsi -->
+                <div class="relative h-64 rounded-[24px] overflow-hidden group">
+                    <div class="absolute inset-0 bg-surface-container">
+                        <img class="w-full h-full object-cover duotone-green"
+                             data-alt="A stylized, atmospheric shot of a beautifully decorated, modern wedding reception hall empty of people."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW20-cCTVKhfh4CMuCT2aCCsClH-plzdcTb9iz3UDR8AMTsrFA5XmivO-IxqK0sWxXrHxeREb-l7OCW7HGYBU6KtHAIjahlfUdldMtMaW9RMdzCMd7v9O9T-m9pJCB04zSA8y2sl0sl4tfbRg5ISkfjNmbspy95fZCZa0NV1z8xD3MMyznUEmXE1BBc-XqITKksTCppRsKijvwT6MffVD6EX1bhTAFLym1ckldl-qbxnQX9bqX5QRDbg">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute inset-0 p-5 flex flex-col justify-end">
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1">Resepsi</h3>
+                        <p class="font-bold text-white text-sm">Sabtu, 20 Juni 2026</p>
+                        <p class="text-secondary text-sm mb-3">11:00 WIB - 14:00 WIB</p>
+                        <p class="text-white/80 text-xs mb-4 line-clamp-2">Gedung Serbaguna, Jl. Contoh Alamat No. 456, Kota, Provinsi</p>
+                        <button class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-xs font-bold text-white w-fit flex items-center gap-2 hover:bg-primary/20 hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-[16px]" data-icon="map">map</span>
+                            Location
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 10. Our Love Story -->
+        <section class="flex flex-col gap-6 mt-8 reveal" id="story">
+            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white border-l-4 border-primary pl-4 mb-2">Our Love Story</h2>
+            <div class="flex flex-col gap-4">
+
+                <!-- Track 1 -->
+                <div class="bg-gradient-to-r from-slate-900 to-teal-900 rounded-[20px] p-4 flex gap-4 items-center overflow-hidden relative shadow-lg">
+                    <div class="w-24 h-24 flex-shrink-0 -rotate-3 shadow-xl border-2 border-white/10 rounded-md overflow-hidden z-10">
+                        <img class="w-full h-full object-cover"
+                             data-alt="A candid, warm photo of a young couple laughing together in a casual cafe setting."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHi-suS-bq0q-IaDdPKuy3FL3alnRiiaN2PdZk6R1RQVj-_IZVMKO4VmJMcRgf48dqRZywjAWhnA6z7073mbtdnO6VVlalWEeB3R8dc-8rFYCflMFSAQ82-doQeZUBwtgkj34NwLaKpj7UGcJk2R6hXm1e5fpZQF3tt3-PNYIOh5EVVXhSDShhSz5EXDyKyes0RX6oDd1j2lodgMOPrjIjzS9o5oLg0EvlKxdHqECkYRQ7jUrRVM_iww">
+                    </div>
+                    <div class="flex-1 text-right z-10">
+                        <span class="text-xs text-teal-400 font-bold uppercase tracking-wider block mb-1">Track 1</span>
+                        <h4 class="font-bold text-white text-lg mb-1">Pertemuan Pertama</h4>
+                        <p class="text-xs text-white/70 line-clamp-3">Awal kisah kami dimulai secara tidak sengaja di sebuah acara teman. Saling menyapa dan bertukar cerita menjadi awal dari segalanya.</p>
+                    </div>
+                </div>
+
+                <!-- Track 2 -->
+                <div class="bg-gradient-to-r from-teal-900 to-emerald-900 rounded-[20px] p-4 flex gap-4 items-center overflow-hidden relative shadow-lg">
+                    <div class="w-24 h-24 flex-shrink-0 rotate-3 shadow-xl border-2 border-white/10 rounded-md overflow-hidden z-10">
+                        <img class="w-full h-full object-cover"
+                             data-alt="A beautiful photo of a couple walking hand-in-hand through a lush, green park."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmE9f0-HPxjMIiSe0bLFFm1SopvKtOY_Je0WsDQnMIO6ea6LMtDS7zE3vQ2PunFQaWTvi5kt6AmzaMnexy7gGpN6Ul4nLBKvyt5K3kxn7ikc9i3400TOMMyFYk7IN2C4ORe_Cf-alxduLdqopt76Z5wLr_DSYM5zTaAkCFSIMM7rxH9KWruoC_epCfd05pHqRIsSqqO1CxLAYf3CF2rM7gt1KgWOkT8tkJkWGnXtyv4xtE3GjD4iLeYA">
+                    </div>
+                    <div class="flex-1 text-right z-10">
+                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block mb-1">Track 2</span>
+                        <h4 class="font-bold text-white text-lg mb-1">Mulai Dekat</h4>
+                        <p class="text-xs text-white/70 line-clamp-3">Komunikasi yang intens membuat kami merasa nyaman satu sama lain. Berbagai kesamaan hobi membuat kami semakin dekat.</p>
+                    </div>
+                </div>
+
+                <!-- Track 3 -->
+                <div class="bg-gradient-to-r from-purple-900 to-pink-900 rounded-[20px] p-4 flex gap-4 items-center overflow-hidden relative shadow-lg">
+                    <div class="w-24 h-24 flex-shrink-0 -rotate-3 shadow-xl border-2 border-white/10 rounded-md overflow-hidden z-10">
+                        <img class="w-full h-full object-cover"
+                             data-alt="A romantic dinner date photo of a couple at a nice restaurant."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbohXnbzgcg9_d4mt0L59_hXIpOHqtSTeeSa0Z4jCzvCmvSfcNed46uyUt3MYDUHO4rR_jhOBSWBxtxurhXNJH4_ZfMfR1AihMRHFO4fzW41OX9htB5kJEX6m_Uw1ZQjRJGqS4R3nLQvibmBoMq9oEhd0xf775r8IMTw18iNCGM3RzHdgppaZgkzHitjdDudoQpx8nLMv8Ci_HiBiHeHUQyQiVdTRxgcjsaXOwF7r8CW4AJq_Uvxk6Q">
+                    </div>
+                    <div class="flex-1 text-right z-10">
+                        <span class="text-xs text-pink-400 font-bold uppercase tracking-wider block mb-1">Track 3</span>
+                        <h4 class="font-bold text-white text-lg mb-1">Momen Berharga</h4>
+                        <p class="text-xs text-white/70 line-clamp-3">Setiap momen bersama kalian adalah hadiah yang tak ternilai. Terima kasih sudah menjadi bagian dari cerita kami.</p>
+                    </div>
+                </div>
+
+                <!-- Track 4 -->
+                <div class="bg-gradient-to-r from-pink-900 to-rose-900 rounded-[20px] p-4 flex gap-4 items-center overflow-hidden relative shadow-lg">
+                    <div class="w-24 h-24 flex-shrink-0 rotate-3 shadow-xl border-2 border-white/10 rounded-md overflow-hidden z-10">
+                        <img class="w-full h-full object-cover"
+                             data-alt="A heartfelt proposal moment of the couple."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqMcYljOGLNY_LBbbsHpjJU24mjJ2NWjAhAJmGfbQrlMBYol1Nc5s_Twi-H0gMZNnr4yJdJJP7iZJz62-gLifPblYH0t7VE_qMwqz2Khc-klW0r3ebQlOmwgiMeLmZySIneXZTFjYV-99tePKPBRm9Vro47KCqFg1WfsM3virtH22XcHEkOEjZAnjSAb8yN7DSO5fdHF62n_wLDhreUPnUdAP4ZtREhut1fC5nMcrY7N6_Zkl7WRpJvQ">
+                    </div>
+                    <div class="flex-1 text-right z-10">
+                        <span class="text-xs text-rose-400 font-bold uppercase tracking-wider block mb-1">Track 4</span>
+                        <h4 class="font-bold text-white text-lg mb-1">Lamaran</h4>
+                        <p class="text-xs text-white/70 line-clamp-3">Hari yang tak akan pernah kami lupakan. Dengan segenap cinta, kami resmi melangkah ke bab baru kehidupan.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 11. Our Memories (Gallery) -->
+        <section class="flex flex-col gap-6 mt-8 relative reveal" id="gallery">
+            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white border-l-4 border-primary pl-4 mb-2">Our Memories</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <!-- Photo 1 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A close-up, artistic shot of the couple holding hands."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbohXnbzgcg9_d4mt0L59_hXIpOHqtSTeeSa0Z4jCzvCmvSfcNed46uyUt3MYDUHO4rR_jhOBSWBxtxurhXNJH4_ZfMfR1AihMRHFO4fzW41OX9htB5kJEX6m_Uw1ZQjRJGqS4R3nLQvibmBoMq9oEhd0xf775r8IMTw18iNCGM3RzHdgppaZgkzHitjdDudoQpx8nLMv8Ci_HiBiHeHUQyQiVdTRxgcjsaXOwF7r8CW4AJq_Uvxk6Q">
+                </div>
+                <!-- Photo 2 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A stunning silhouette photo of a couple standing together against a dramatic, colorful sunset sky."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqMcYljOGLNY_LBbbsHpjJU24mjJ2NWjAhAJmGfbQrlMBYol1Nc5s_Twi-H0gMZNnr4yJdJJP7iZJz62-gLifPblYH0t7VE_qMwqz2Khc-klW0r3ebQlOmwgiMeLmZySIneXZTFjYV-99tePKPBRm9Vro47KCqFg1WfsM3virtH22XcHEkOEjZAnjSAb8yN7DSO5fdHF62n_wLDhreUPnUdAP4ZtREhut1fC5nMcrY7N6_Zkl7WRpJvQ">
+                </div>
+                <!-- Photo 3 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A candid, joyful photo of the couple laughing out loud together."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdzdCMW0BPNTyZN4JLatkj-aDk8qLPjaWVO1NA5QIwBEv3BHfinJDuDNFLjQS1n8F9FFSPaSNZoEvJDKpLYBdXYzrrLfFebGc4Jx-FsGgu77irxBkMeAEP4WyW2kCPDbbwcgWx_j79LRPwYYEIhqYMoMYt2yf8Gnp3PGDvt3y2iaZXw_OhOpIAAOWUSDcuG3nOpx9qk2koRhJ3fdgpHlRl1ItOyRudnhNASz4B8kr9UBXrINgMcLdMjQ">
+                </div>
+                <!-- Photo 4 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="An elegant, formal portrait of the couple looking stunning in sophisticated evening wear."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-tIybQuWaLoyEf_cgcyO-agsJjg6EO4Y6zmDZv_6fAW5JBN5doL0M-JuHjtMPjqId9z49OMPacHs-NqdAjyMvYk4H01qYadG0-mN-9hqLC93ZQBKtXybiBGN2H7ipn01qZX_5y23_ti2h1y0zIGZ6-EJ9TWwRWagJ85VZ_m6MgzOXWszWqycIT0BCVVZy3u9mcT0DJXbPtJfni8X9Nb3O5wnviZmFKGysuBmnDkZaHtlPo4jobcrDyg">
+                </div>
+                <!-- Photo 5 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A romantic photo of the couple at a beautiful beach sunset."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6UbqIlMCtD96VhA0hMbey1rUoFieuXw3KS80JMfWY6pZY95l1Kna3oPpht5UuXgi7HEj4Y8dDu6MzlXzOgqzRVi-IAzAjsjWMm8af19-KyZCn5V109rmzXckLy8QaHSNwXWcy1wc3pRVyF9QwjaITgXdq0snf_VdXb7YsBiZmgoARo1YNqgl2Bn_tsX5OMXewvkFg8HMJXfATMehbBFm4rrahAsRViOEsp4xOEdD7AyoGmNWqfupAZw">
+                </div>
+                <!-- Photo 6 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A sweet moment of the couple sharing a laugh in a garden."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHi-suS-bq0q-IaDdPKuy3FL3alnRiiaN2PdZk6R1RQVj-_IZVMKO4VmJMcRgf48dqRZywjAWhnA6z7073mbtdnO6VVlalWEeB3R8dc-8rFYCflMFSAQ82-doQeZUBwtgkj34NwLaKpj7UGcJk2R6hXm1e5fpZQF3tt3-PNYIOh5EVVXhSDShhSz5EXDyKyes0RX6oDd1j2lodgMOPrjIjzS9o5oLg0EvlKxdHqECkYRQ7jUrRVM_iww">
+                </div>
+                <!-- Photo 7 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A lovely couple portrait in a flower field."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmE9f0-HPxjMIiSe0bLFFm1SopvKtOY_Je0WsDQnMIO6ea6LMtDS7zE3vQ2PunFQaWTvi5kt6AmzaMnexy7gGpN6Ul4nLBKvyt5K3kxn7ikc9i3400TOMMyFYk7IN2C4ORe_Cf-alxduLdqopt76Z5wLr_DSYM5zTaAkCFSIMM7rxH9KWruoC_epCfd05pHqRIsSqqO1CxLAYf3CF2rM7gt1KgWOkT8tkJkWGnXtyv4xtE3GjD4iLeYA">
+                </div>
+                <!-- Photo 8 -->
+                <div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                         data-alt="A beautiful engagement ring shot with soft bokeh background."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFxyg0fwSVjdBGtttcqHeIVI51WKjYEzGs3DCh-6h3sK_Zq_Fjz0S9pKEWxuTM7u8DQ0TETjavrqh9yNEjszbZZT-zKG5QorSys1Sf7ZZX9EKoLwLJM8Q77weIVfSRvdBENyu8myaCI3gC6xE_RoS3B06JlmuSZEBXT4_s-mP_w7rXookXqXZCFWI2nbDLYNYTTnf2LkODRzYTkM1zL9LPF5ooVbv5WUl6NC5363-UBZ-UjvZlPVcPZQ">
+                </div>
+            </div>
+
+           
+        </section>
+          <!-- 9. Mini Player Divider -->
+        <div class="mini-player-divider flex justify-center">
+            <div class="glass-panel w-11/12 rounded-full px-4 py-2 flex items-center justify-between shadow-lg">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-surface-container rounded-md flex items-center justify-center border border-white/10">
+                        <span class="material-symbols-outlined text-primary text-[18px]" data-icon="mail">mail</span>
+                    </div>
+                    <span class="font-player-track text-player-track text-sm truncate max-w-[120px]">RSVP Now</span>
+                </div>
+                <div class="flex items-center gap-2 text-secondary">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="fast_rewind">fast_rewind</span>
+                    <span class="material-symbols-outlined text-[20px] text-primary" data-icon="graphic_eq">graphic_eq</span>
+                    <span class="material-symbols-outlined text-[20px]" data-icon="open_in_full">open_in_full</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Confirm Attendance -->
+        <section class="glass-panel rounded-[24px] p-card-padding text-center reveal" id="rsvp">
+            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white mb-4">RSVP</h2>
+            <p class="font-body-md text-body-md text-secondary mb-8">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+            </p>
+            <button class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-4 rounded-full transition-colors flex items-center justify-center gap-2 text-lg spotify-glow">
+                Konfirmasi Kehadiran
+            </button>
+        </section>
+
+        <!-- 13. Guest Messages -->
+        <section class="flex flex-col gap-6 reveal" id="guest-messages">
+            <div class="border-b-2 border-primary w-fit pb-1">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-pure-white uppercase tracking-wide">Guest Book</h2>
+            </div>
+
+            <!-- Message Form -->
+            <div class="glass-panel rounded-[24px] p-card-padding">
+                <form id="guest-message-form" class="flex flex-col gap-4">
+                    <div>
+                        <input type="text" id="msg-name" placeholder="Nama Anda" required
+                            class="w-full px-4 py-3 bg-surface-container rounded-xl border border-white/10 text-white text-sm placeholder-white/30 outline-none focus:border-primary transition-colors">
+                    </div>
+                    <div>
+                        <textarea id="msg-text" rows="3" placeholder="Tulis ucapan atau doa terbaik..." required
+                            class="w-full px-4 py-3 bg-surface-container rounded-xl border border-white/10 text-white text-sm placeholder-white/30 outline-none focus:border-primary transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-3 bg-primary hover:bg-primary/90 text-on-primary font-bold rounded-full transition-colors flex items-center justify-center gap-2 text-sm">
+                        <span class="material-symbols-outlined text-[18px]">send</span>
+                        Kirim Ucapan
+                    </button>
+                </form>
+            </div>
+
+            <!-- Messages List -->
+            <div id="messages-list" class="flex flex-col gap-4">
+                <!-- Sample messages -->
+                <div class="glass-panel rounded-[20px] p-4 text-left">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-[#3d3d3d] flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <span class="font-bold text-[13px] text-white/80 select-none">SA</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Sarah Amelia</p>
+                            <p class="text-secondary text-xs">2 hari yang lalu</p>
+                        </div>
+                    </div>
+                    <p class="text-secondary text-sm leading-relaxed">
+                        Selamat ya untuk Willy & Marry! Semoga selalu bahagia dan menjadi keluarga yang sakinah, mawaddah, warahmah. Doa yang terbaik untuk kalian!
+                    </p>
+                </div>
+                <div class="glass-panel rounded-[20px] p-4 text-left">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-[#3d3d3d] flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <span class="font-bold text-[13px] text-white/80 select-none">BS</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Budi Santoso</p>
+                            <p class="text-secondary text-xs">5 hari yang lalu</p>
+                        </div>
+                    </div>
+                    <p class="text-secondary text-sm leading-relaxed">
+                        Semoga pernikahan kalian lancar dan penuh berkah. Menjadi saksi pernikahan kalian adalah kehormatan bagi saya. Selamat menjalani lembaran baru!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+         <!-- Floating Audio Toggle -->
+            <button class="absolute -right-2 top-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-background shadow-lg hover:scale-110 transition-transform z-20 spotify-glow">
+                <span class="material-symbols-outlined text-[24px]" data-icon="volume_up">volume_up</span>
+            </button>
+
+        <!-- 14. Closing -->
+        <section class="py-12 flex flex-col items-center justify-center text-center border-t border-white/10 mt-4 mb-8 reveal" id="closing">
+            <h1 class="font-headline-xl text-headline-xl text-pure-white max-w-[280px] mb-8">
+                See You On<br>
+                <span class="text-primary mt-2 block">Our Big Day</span>
+            </h1>
+            <div class="flex flex-col items-center gap-3">
+                <img src="asset/img/logo/SebarKabar.png" class="w-20 h-auto opacity-60" alt="SebarKabar">
+                <p class="text-xs text-secondary/50 font-label-caps text-label-caps tracking-widest">&copy; 2026 SebarKabar. All rights reserved.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Background Music -->
+    <audio id="bg-music" src="asset/audio/audio-wedding.mp3" preload="auto"></audio>
+
+    <!-- Global Bottom Nav -->
+    <div id="bottom-nav" class="fixed bottom-4 left-4 right-4 z-50 flex flex-col bg-[#1c1b1b] rounded-xl shadow-2xl overflow-hidden">
+        <div class="flex items-center justify-between p-3">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-md overflow-hidden flex-shrink-0">
+                    <img src="asset/img/fotodepan.jpg"
+                         class="w-full h-full object-cover" alt="Thumbnail">
+                </div>
+                <div class="flex flex-col">
+                    <span id="song-title" class="text-white font-bold text-sm leading-tight">You'll Be in My Heart</span>
+                    <span class="text-secondary font-semibold text-xs">Willy &amp; Marry</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-white">
+                <button id="btn-devices" class="hover:opacity-80 transition-opacity" aria-label="Devices">
+                    <span class="material-symbols-outlined text-24px" style="font-variation-settings: 'FILL' 0;">devices</span>
+                </button>
+                <button id="btn-playpause" class="hover:opacity-80 transition-opacity" aria-label="Play/Pause">
+                    <span id="icon-playpause" class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                </button>
+            </div>
+        </div>
+        <div id="music-progress" class="h-[2px] w-full bg-white/10 cursor-pointer">
+            <div id="music-progress-fill" class="h-full bg-white w-0 transition-all duration-0.1"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
